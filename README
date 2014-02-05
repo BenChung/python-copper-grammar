@@ -1,0 +1,20 @@
+STEPS FOR RUNNING THE PYTHON GRAMMAR
+
+1. Install Copper via the instructions on Copper's website: http://code.google.com/p/copper-cc/
+
+NOTE: Make sure that the version of Java that you use during the Copper installation process is the same version as that which you use in later steps during the creation of the Python grammar. We have tested this process for Java 1.6 and 1.7.
+NOTE 2: After installation, two jars will have been created: CopperRuntime.jar and CopperCompiler.jar. These will be located in the /jars directory relative to where the Copper installation took place. For the rest of this document, this will be referred to as "$(COPPER_JAR_PATH)". 
+
+2. Download Python.x and place in a directory. "cd" to this directory. 
+
+3. Type "mkdir parsers" and hit enter 
+
+4. Type "java -jar $(COPPER_JAR_PATH)/CopperCompiler.jar -o parsers/Python.java -parser Python ./Python.x" and hit enter
+
+5. Type "javac -classpath  $(COPPER_JAR_PATH)/CopperRuntime.jar parsers/Python.java" and hit enter
+
+6. Place a Python test file (referred to as "$(TEST_FILE)") in the current directory
+
+7. Type "java -classpath $(COPPER_JAR_PATH)/CopperRuntime.jar:. edu.umn.cs.melt.copper.runtime.RunParser parsers.Python -f $(TEST_FILE) > debug_output.txt"
+
+NOTE 3: debug_output.txt will be where any print statements in Python.x will output to. This output is helpful in the debugging process.
