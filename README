@@ -1,20 +1,49 @@
 STEPS FOR RUNNING THE PYTHON GRAMMAR
 
-1. Install Copper via the instructions on Copper's website: http://code.google.com/p/copper-cc/
+1. Install Copper via the instructions on Copper's website: 
+   http://code.google.com/p/copper-cc/
 
-NOTE: Make sure that the version of Java that you use during the Copper installation process is the same version as that which you use in later steps during the creation of the Python grammar. We have tested this process for Java 1.6 and 1.7.
-NOTE 2: After installation, two jars will have been created: CopperRuntime.jar and CopperCompiler.jar. These will be located in the /jars directory relative to where the Copper installation took place. For the rest of this document, this will be referred to as "$(COPPER_JAR_PATH)". 
+There are two options for step 1:
 
-2. Download Python.x and place in a directory. "cd" to this directory. 
+a. Go to http://code.google.com/p/copper-cc/source/checkout and use Mercurial 
+to clone Copper's source code (Mercurial will need to be installed). From the
+copper-cc/ directory, "cd" to doc/ and follow the instructions in 
+INSTALL.txt. Make sure that the version of Java that you use during the Copper
+installation process is the same version as that which you use in later steps
+during the creation of the Python grammar. We have tested this process for 
+Java 1.6 and 1.7. After installation, two jars will have been created: 
+CopperRuntime.jar and CopperCompiler.jar. These will be located in 
+copper-cc/jar. For the rest of this document, this will be referred to as
+"$(COPPER_JAR_PATH)". 
 
-3. Type "mkdir parsers" and hit enter 
 
-4. Type "java -jar $(COPPER_JAR_PATH)/CopperCompiler.jar -o parsers/Python.java -parser Python ./Python.x" and hit enter
+b. Download the Java jars directly from 
+http://code.google.com/p/copper-cc/downloads/list. Download 
+CopperRuntime-0.7.1.jar and CopperCompiler-0.7.1.jar. Rename these files to 
+CopperRuntime.jar and CopperCompiler.jar respectively. We have tested this 
+process while running Java 1.6 and 1.7. For the rest of this document, the 
+location of the jars will be referred to as "$(COPPER_JAR_PATH)". 
 
-5. Type "javac -classpath  $(COPPER_JAR_PATH)/CopperRuntime.jar parsers/Python.java" and hit enter
 
-6. Place a Python test file (referred to as "$(TEST_FILE)") in the current directory
 
-7. Type "java -classpath $(COPPER_JAR_PATH)/CopperRuntime.jar:. edu.umn.cs.melt.copper.runtime.RunParser parsers.Python -f $(TEST_FILE) > debug_output.txt"
+2. Download Python.x and PythonTest.py and place in a directory. "cd" to this 
+directory 
 
-NOTE 3: debug_output.txt will be where any print statements in Python.x will output to. This output is helpful in the debugging process.
+3. You will need to create a directory for the parser files. Type 
+"mkdir parsers" and hit enter 
+
+4. To create the Python parser Java file, type "java -jar 
+   $(COPPER_JAR_PATH)/CopperCompiler.jar -o parsers/Python.java -parser Python
+   ./Python.x" and hit enter
+
+5. To compile the Java file from the previous step, type "javac -classpath  
+   $(COPPER_JAR_PATH)/CopperRuntime.jar parsers/Python.java" and hit enter
+
+
+6. To run the new parser on a test file, type "java -classpath 
+   $(COPPER_JAR_PATH)/CopperRuntime.jar:. 
+   edu.umn.cs.melt.copper.runtime.RunParser parsers.Python -f PythonTest.py > 
+   debug_output.txt" and hit enter
+
+NOTE 3: debug_output.txt will be where any print statements in Python.x will 
+output to. This output is helpful in the parser debugging process.
