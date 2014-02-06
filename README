@@ -47,3 +47,9 @@ directory
 
 NOTE 3: debug_output.txt will be where any print statements in Python.x will 
 output to. This output is helpful in the parser debugging process.
+
+
+
+For more information on our work with layout-sensitive parsing, see:
+http://www-users.cs.umn.edu/~hall/research_paper_in_markdown.html
+
