@@ -4,17 +4,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+// Based on the Berkeley Grammar:
+//  http://inst.eecs.berkeley.edu/~cs164/fa11/python-grammar.html
+// and 
+//  http://docs.python.org/release/2.5.4/ref/ref.html and http://docs.python.org/2/tutorial/
+// and the Python 2.4.6 grammar specification included with Python 2.4.6:
+//  Python-2.4.6/Grammar/Grammar 
 
 
-//Based on the Berkeley Grammar: http://inst.eecs.berkeley.edu/~cs164/fa11/python-grammar.html
-//and 
-// http://docs.python.org/release/2.5.4/ref/ref.html and http://docs.python.org/2/tutorial/
-//and 
-// the Python 2.4.6 grammar specification included with Python 2.4.6: Python-2.4.6/Grammar/Grammar
-
-
-
-
+// A description of several parts of this grammar can be found in the report at
+//  http://www-users.cs.umn.edu/~hall/research_paper_in_markdown.html
+// It is probably best to read or skim that before diving into this specification.
 
 %%
 %parser Python
