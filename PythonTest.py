@@ -4,5 +4,6 @@ for x in range(1, 1000):
     if (x % 2) == 0:
         if(x % 3) == 0:
             sum += x
-print x
+            print x   
+print sum
 
